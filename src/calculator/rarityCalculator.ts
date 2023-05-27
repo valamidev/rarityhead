@@ -1,8 +1,9 @@
-import { Attributes, AttributesType, CollectionTokens, DEFAULT_EMPTY_TYPE } from '../types';
+import { Attributes, AttributesType, CollectionTokens, CollectionTokenswithScore, DEFAULT_EMPTY_TYPE } from '../types';
 
 
 
 export class RarityCalculator {
+    private collection: CollectionTokenswithScore[];
     attributeKeys = new Set();
     attributes: object[];
 
@@ -10,7 +11,10 @@ export class RarityCalculator {
 
     attributesMap: Map<string, Attributes> = new Map();
 
-    constructor(private collection: CollectionTokens[]) {
+    constructor(collection: CollectionTokens[]) {
+
+        this.collection = collection.map((e) => ({ ...e, tokenScore: 0, tokenRank: 0 }));
+
         this.collectionSize = collection.length;
 
         this.attributes = this.collection.map((e) => e.attributes);
@@ -18,9 +22,8 @@ export class RarityCalculator {
         this.createAttributesMap();
     }
 
-    public TokenScore() {
+    public TokenScore(): CollectionTokenswithScore[] {
         for (const token of this.collection) {
-            token.tokenScore = 0;
 
             for (const key of [...this.attributesMap.keys()]) {
                 const hasAtr = (token.attributes as any[]).find((e: any) => e.trait_type === key);

@@ -1,18 +1,24 @@
 
 export const DEFAULT_EMPTY_TYPE = '__undefined';
 
+
 export interface CollectionTokens {
-    chainId: string;
-    contract: string;
-    tokenIndex: number;
-    tokenId: string;
-    image?: string;
     attributes: Record<string, any>;
+    chainId?: string | number;
+    contract?: string;
+    tokenIndex?: string | number;
+    tokenId?: string | number;
+    image?: string;
     name?: string;
     description?: string;
-    tokenScore?: number;
-    tokenRank?: number;
 }
+
+export interface CollectionTokenswithScore extends CollectionTokens {
+    tokenScore: number;
+    tokenRank: number;
+}
+
+
 
 export enum AttributesType {
     String = 'string',
