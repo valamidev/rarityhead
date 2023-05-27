@@ -116,5 +116,26 @@ describe('RarityCalculator', () => {
         expect(tokens[2].tokenId).toBe(4454);
     });
 
+    it('should be fast', () => {
+
+        const newCollection: any[] = [];
+
+        for (let index = 0; index < 10_000; index++) {
+            newCollection.push({
+                ...collection[2],
+                tokenId: index
+            });
+        }
+
+        const time = Date.now();
+
+        const calculator = new RarityCalculator(newCollection);
+        const tokens = calculator.TokenScore();
+
+        console.log('Finished in: ', Date.now() - time);
+
+        expect(true).toBe(true);
+    });
+
 
 });

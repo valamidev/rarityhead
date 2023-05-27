@@ -3,6 +3,7 @@ export const DEFAULT_EMPTY_TYPE = '__undefined';
 
 
 export interface CollectionTokens {
+    [key: string]: any;
     attributes: Record<string, any>;
     chainId?: string | number;
     contract?: string;
