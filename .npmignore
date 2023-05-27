@@ -1,6 +1,6 @@
 # Ignore all files except the build folder
 *
-!build/
+!build/**
 # Include required files
 !package.json
 !README.md
