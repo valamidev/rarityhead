@@ -2,7 +2,12 @@
   "name": "rarityhead",
   "version": "1.0.0",
   "description": "RarityHead NFT rarity calculator package optimized for speed",
-  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valamidev/rarityhead.git"
+  },
+  "homepage": "https://github.com/valamidev/rarityhead#readme",
+  "main": "build/index.js",
   "scripts": {
     "clean": "rimraf -rf build", 
     "build": "yarn clean && tsc",
