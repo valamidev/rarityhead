@@ -6,8 +6,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "dist",
+    "outDir": "build",
     "sourceRoot": "src",
     "sourceMap": true
   },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts" // ignore all test files
+  ]
 }
